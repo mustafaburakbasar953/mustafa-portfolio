@@ -5,7 +5,10 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { BadgeCheck, ExternalLink } from "lucide-react";
 import type { Certification } from "./types";
+import { useState } from "react";
 
+
+const [flipped, setFlipped] = useState(false);
 interface Props {
   certification: Certification;
 }
@@ -15,11 +18,17 @@ export default function CertificationCard({ certification }: Props) {
     <div className="group relative h-[430px] w-full [perspective:2000px]">
 
       <motion.div
-        whileHover={{ rotateY: 180 }}
-        transition={{
-          duration: 0.75,
-          ease: [0.22, 1, 0.36, 1],
-        }}
+  animate={{
+    rotateY: flipped ? 180 : 0,
+  }}
+  whileHover={{
+    rotateY: 180,
+  }}
+  onClick={() => setFlipped(!flipped)}
+  transition={{
+    duration: 0.75,
+    ease: [0.22, 1, 0.36, 1],
+  }}
         className="relative h-full w-full [transform-style:preserve-3d]"
       >
 
