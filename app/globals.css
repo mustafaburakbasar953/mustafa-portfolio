@@ -1,0 +1,310 @@
+@import "tailwindcss";
+
+/* ===========================
+   THEME
+=========================== */
+
+:root {
+  --background: #030712;
+  --surface: #0f172a;
+  --surface-light: #172554;
+
+  --primary: #22d3ee;
+  --primary-hover: #67e8f9;
+
+  --text: #f8fafc;
+  --text-secondary: #94a3b8;
+
+  --border: rgba(255,255,255,.08);
+}
+
+/* ===========================
+   BASE
+=========================== */
+
+*,
+*::before,
+*::after{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:100px; /* Navbar yüksekliği */
+}
+
+body{
+  background:var(--background);
+  color:var(--text);
+  font-family:var(--font-geist-sans),sans-serif;
+  overflow-x:hidden;
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+img{
+  user-select:none;
+  -webkit-user-drag:none;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  cursor:pointer;
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+  width:8px;
+}
+
+::-webkit-scrollbar-track{
+  background:#020617;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#155e75;
+  border-radius:999px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background:#22d3ee;
+}
+
+/* Firefox */
+
+*{
+  scrollbar-width:thin;
+  scrollbar-color:#155e75 #020617;
+}
+
+/* ===========================
+   SELECTION
+=========================== */
+
+::selection{
+  background:rgba(34,211,238,.35);
+  color:white;
+}
+
+/* ===========================
+   REUSABLE
+=========================== */
+
+.glass{
+  background:rgba(15,23,42,.60);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.glow{
+  box-shadow:
+    0 0 35px rgba(34,211,238,.18),
+    0 0 80px rgba(34,211,238,.08);
+}
+
+.section{
+  width:100%;
+  max-width:1280px;
+  margin:auto;
+  padding:120px 32px;
+}
+
+.title{
+  font-size:clamp(2rem,4vw,3.5rem);
+  font-weight:700;
+  line-height:1.1;
+  letter-spacing:-0.03em;
+}
+
+.subtitle{
+  color:var(--text-secondary);
+  line-height:1.8;
+  max-width:720px;
+}
+
+.button-primary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+
+  padding:14px 28px;
+
+  border-radius:999px;
+
+  background:var(--primary);
+  color:#021014;
+
+  font-weight:600;
+
+  transition:.3s ease;
+}
+
+.button-primary:hover{
+  background:var(--primary-hover);
+  transform:translateY(-2px);
+}
+
+.button-outline{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.5rem;
+
+  padding:14px 28px;
+
+  border-radius:999px;
+
+  border:1px solid var(--border);
+
+  transition:.3s ease;
+}
+
+.button-outline:hover{
+  color:var(--primary);
+  border-color:var(--primary);
+}
+/* ==========================================
+   PAGE FADE ANIMATION
+========================================== */
+
+body{
+  animation:fadeIn .45s ease;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+  }
+  to{
+    opacity:1;
+  }
+}
+
+/* ==========================================
+   MODERN BACKGROUND
+========================================== */
+
+body{
+  background:
+    radial-gradient(circle at top,
+      rgba(34,211,238,.08) 0%,
+      #030712 35%,
+      #020617 100%);
+}
+
+/* ==========================================
+   FOCUS STATES
+========================================== */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible{
+  outline:2px solid #22d3ee;
+  outline-offset:3px;
+  border-radius:12px;
+}
+
+/* ==========================================
+   SMOOTH IMAGE HOVER
+========================================== */
+
+img{
+  transition:transform .4s ease;
+}
+
+/* ==========================================
+   HIDE SCROLLBAR (optional)
+========================================== */
+
+/*
+.no-scrollbar::-webkit-scrollbar{
+  display:none;
+}
+
+.no-scrollbar{
+  -ms-overflow-style:none;
+  scrollbar-width:none;
+}
+*/
+
+/* ==========================================
+   INPUTS
+========================================== */
+
+input,
+textarea{
+  transition:
+    border-color .3s ease,
+    background .3s ease,
+    box-shadow .3s ease;
+}
+
+input:focus,
+textarea:focus{
+  border-color:#22d3ee !important;
+  box-shadow:0 0 0 4px rgba(34,211,238,.12);
+}
+
+/* ==========================================
+   CARD HOVER
+========================================== */
+
+.hover-card{
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
+}
+
+.hover-card:hover{
+  transform:translateY(-6px);
+
+  border-color:rgba(34,211,238,.35);
+
+  box-shadow:
+    0 10px 35px rgba(0,0,0,.35),
+    0 0 35px rgba(34,211,238,.12);
+}
+
+/* ==========================================
+   GRADIENT TEXT
+========================================== */
+
+.gradient-text {
+  background: linear-gradient(90deg, #ffffff, #22d3ee);
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================
+   SECTION DIVIDER
+========================================== */
+
+.section-divider{
+  width:100%;
+  height:1px;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.08),
+    transparent
+  );
+}
